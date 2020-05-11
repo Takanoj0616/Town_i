@@ -1,0 +1,37 @@
+{:uriI"file://app/assets/javascripts/japan-map.jquery.json?type=application/json&id=57e5a68db2e1c073bc0bd40502323d349ec240c65742fc45c20942939b8551a6:ET:load_pathI"app/assets/javascripts;T:filenameI"1app/assets/javascripts/japan-map.jquery.json;T:	nameI"japan-map.jquery;T:logical_pathI"japan-map.jquery.json;T:content_typeI"application/json;T:sourceI"±{
+    "name": "japan-map",
+    "title": "Japan Map - clickable map of Japan",
+    "description": "jQuery plugin for creating clickable canvas (as far) map of prefectures or areas of Japan.",
+    "keywords": [
+        "html5",
+        "canvas",
+        "japan",
+        "map",
+        "prefecture",
+        "clickable",
+        "selector"
+    ],
+    "version": "0.0.4",
+    "author": {
+        "name": "Takemaru Hirai",
+        "url": "https://github.com/takemaru-hirai"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/takemaru-hirai/japan-map/blob/master/LICENSE.txt"
+        }
+    ],
+    "bugs": "https://github.com/takemaru-hirai/japan-map/issues",
+    "homepage": "http://takemaru-hirai.github.io/japan-map/",
+    "docs": "http://takemaru-hirai.github.io/japan-map/",
+    "download": "http://takemaru-hirai.github.io/japan-map/",
+    "dependencies": {
+        "jquery": ">=1.11.1"
+    }
+}
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"@processors:type=application/json&file_type=application/json;TTI"?file-digest://app/assets/javascripts/japan-map.jquery.json;TTF:charsetI"
+utf-8;F:digest"%[wgúI%	é¹æÜoõÛÏO:¤ö@ ¾Ş¢Ö:lengthi±:dependencies_digest"%}áUCúî“‹¬Dù³ß:´GñQp^¹éş¾Á<Œt:idI"E57e5a68db2e1c073bc0bd40502323d349ec240c65742fc45c20942939b8551a6;F:
+mtimel+K·^
