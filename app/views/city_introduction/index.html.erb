@@ -1,0 +1,94 @@
+        <div>
+          <%= search_form_for @q, url:  city_introduction_index_path do |f| %>
+          <%= f.label :place, "Keyword" %>
+          <%= f.search_field :place_cont %>
+
+          <%= f.submit "検索" %>
+          <% end %>
+        </div>
+
+
+        <table>
+          <tr>
+            <td>
+              <p><%= image_tag 'yokohama.jpg', :size =>'200x200' %></p>
+            </td>
+            <td>
+              <p>横浜</p>
+            </td>
+            <td>
+              <p>コメントコメントコメントコメント</p>
+            </td>
+            <td>
+              <p>show移動 追加</P>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <p><%= image_tag 'ebisu.jpg', :size =>'200x200' %></p>
+            </td>
+            <td>
+              <p>恵比寿</p>
+            </td>
+            <td>
+              <p>コメントコメントコメントコメント</p>
+            </td>
+            <td>
+              <p>show移動 追加</P>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <p><%= image_tag 'Kichijoji.jpg', :size =>'200x200' %></p>
+            </td>
+            <td>
+              <p>吉祥寺</p>
+            </td>
+            <td>
+              <p>コメントコメントコメントコメント</p>
+            </td>
+            <td>
+              <p>show移動 追加</P>
+            </td>
+          </tr>
+        </table>
+
+        <div id="map"></div>
+
+        <h1>カレンダー</h1>
+
+        <table>
+          <thead>
+            <tr>
+              <th>情報</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @cityIntroductions.each do |cityIntroduction| %>
+            <tr>
+              <td><%= cityIntroduction.name %></td>
+              <td><%= cityIntroduction.ntroduction.strftime("%Y-%m-%d %H:%M") %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <br>
+
+
+          <%= month_calendar events: @cityIntroductions  do |date, cityIntroductions| %>
+            <%= date.day %>
+
+          <% cityIntroductions.each do |cityIntroduction| %>
+          <div>
+            <%= link_to cityIntroduction.name, cityIntroduction %>
+          </div>
+        <% end %>
+      <% end %>
+
+
+
