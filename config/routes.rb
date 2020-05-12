@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   mount RailsAdmin::Engine => '/y', as: 'rails_admin'
-  get 'city_introduction/index'
-  get 'city_introduction/show'
-   get 'city_introduction/new'
+
+   resources :city_introductions
   devise_for :customers
   
 end
