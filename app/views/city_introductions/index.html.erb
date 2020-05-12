@@ -1,5 +1,5 @@
         <div>
-          <%= search_form_for @q, url:  city_introduction_index_path do |f| %>
+          <%= search_form_for @q, url:  city_introductions_path do |f| %>
           <%= f.label :place, "Keyword" %>
           <%= f.search_field :place_cont %>
 
@@ -68,10 +68,10 @@
           </thead>
 
           <tbody>
-            <% @cityIntroductions.each do |cityIntroduction| %>
+            <% @city_introductions.each do |city_introduction| %>
             <tr>
-              <td><%= cityIntroduction.name %></td>
-              <td><%= cityIntroduction.ntroduction.strftime("%Y-%m-%d %H:%M") %></td>
+              <td><%= city_introduction.name %></td>
+              <td><%= city_introduction.ntroduction.strftime("%Y-%m-%d %H:%M") %></td>
             </tr>
             <% end %>
           </tbody>
@@ -80,12 +80,12 @@
         <br>
 
 
-          <%= month_calendar events: @cityIntroductions  do |date, cityIntroductions| %>
+          <%= month_calendar events: @city_introductions  do |date, city_introductions| %>
             <%= date.day %>
 
-          <% cityIntroductions.each do |cityIntroduction| %>
+          <% city_introductions.each do |city_introduction| %>
           <div>
-            <%= link_to cityIntroduction.name, cityIntroduction %>
+            <%= link_to city_introduction.name, new_city_introduction_path %>
           </div>
         <% end %>
       <% end %>
