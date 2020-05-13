@@ -1,0 +1,13 @@
+<h1>コメント一覧</h1>
+
+<% @posts.each do |post| %>
+<p>場所</p>
+<span><%= post.town_name %></span>
+
+<p>コメント</p>
+<span><%= post.comment %></span>
+< p>画像</>
+<%= attachment_image_tag post, :image, :fill, 200, 100, format: 'jpeg' %>
+
+
+<% end %>
