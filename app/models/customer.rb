@@ -5,4 +5,5 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          ratyrate_rater
+          has_many :posts, dependent: :destroy
 end
