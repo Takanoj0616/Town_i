@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   devise_for :customers
   resources :posts, only: [:new, :create, :index, :show]
   resource :post_comments, only: [:create]
+
 end

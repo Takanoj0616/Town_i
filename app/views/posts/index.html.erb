@@ -1,13 +1,20 @@
 <h1>コメント一覧</h1>
 
 <% @posts.each do |post| %>
-<p>場所</p>
-<span><%= post.town_name %></span>
+<table>
+  <tr>
 
-<p>コメント</p>
-<span><%= post.comment %></span>
-< p>画像</>
-<%= attachment_image_tag post, :image, :fill, 200, 100, format: 'jpeg' %>
+    <td><%= attachment_image_tag post, :image, :fill, 200, 100, format: 'jpeg' %></td>
 
+    <td><span><%= post.town_name %></span></td>
 
+    <td><span><%= post.comment %></td>
+
+    <td><%= post.customer.name %></td>
+  </tr>
+</table>
 <% end %>
+<%= paginate @posts %>
+
+<%= post.customer.name %>
+
