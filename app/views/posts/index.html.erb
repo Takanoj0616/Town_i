@@ -1,20 +1,21 @@
 <h1>コメント一覧</h1>
+<div @products,class: "jscroll">
+  <% @posts.each do |post| %>
+  <table>= render partial: 'user', collection: @products, as: "product", class: "jscroll"
+    <tr>
 
-<% @posts.each do |post| %>
-<table>
-  <tr>
+      <%
+=begin%>
+      <td><%= attachment_image_tag post, :image, :fill, 200, 100, format: 'jpg' %></td>
+      <%
+=end%>
 
-    <td><%= attachment_image_tag post, :image, :fill, 200, 100, format: 'jpeg' %></td>
+      <td><span><%= post.town_name %></span></td>
 
-    <td><span><%= post.town_name %></span></td>
+      <td><span><%= post.comment %></td>
 
-    <td><span><%= post.comment %></td>
-
-    <td><%= post.customer.name %></td>
-  </tr>
-</table>
-<% end %>
-<%= paginate @posts %>
-
-
-
+      <td><%= post.customer.name %></td>
+    </tr>
+  </table>
+  <% end %>
+  <%= paginate @posts %>
