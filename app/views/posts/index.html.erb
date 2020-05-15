@@ -1,5 +1,5 @@
 <h1>コメント一覧</h1>
-<div @products,class: "jscroll">
+<div class= "jscroll">
   <% @posts.each do |post| %>
   <table>= render partial: 'user', collection: @products, as: "product", class: "jscroll"
     <tr>
