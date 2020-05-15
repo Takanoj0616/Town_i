@@ -16,6 +16,14 @@
 //= require_tree .
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jcanvas
 //= require jquery.jscroll.min.js
+
+
+$(function () {
+	$('.a').slick({
+		dots: true,
+		autoplay: true,
+		autoplaySpeed: 1500,
+	});
+});
