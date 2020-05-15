@@ -10,18 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require jquery.raty
 //= require ratyrate
 //= require_tree .
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery
 //= require jcanvas
-$(function () {
-	$('.a').slick({
-		dots: true,
-		autoplay: true,
-		autoplaySpeed: 1000,
-	});
-});
+//= require jquery.jscroll.min.js
