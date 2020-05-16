@@ -1,14 +1,10 @@
 <h1>コメント一覧</h1>
-<div class= "jscroll">
+<div class="jscroll">
   <% @posts.each do |post| %>
-  <table>= render partial: 'user', collection: @products, as: "product", class: "jscroll"
-    <tr>
 
-      <%
-=begin%>
+  <table>
+    <tr>
       <td><%= attachment_image_tag post, :image, :fill, 200, 100, format: 'jpg' %></td>
-      <%
-=end%>
 
       <td><span><%= post.town_name %></span></td>
 
@@ -19,3 +15,5 @@
   </table>
   <% end %>
   <%= paginate @posts %>
+</div>
+

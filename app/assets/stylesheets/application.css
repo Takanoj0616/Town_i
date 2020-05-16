@@ -14,7 +14,11 @@
  *= require_tree .
  *= require_self
  */
+
 .c{
   height: 500px;
   width :60%;
+}
+nav.pagination {
+  display: none;
 }
