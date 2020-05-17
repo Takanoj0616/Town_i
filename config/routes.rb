@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  resources :contacts
   get 'homes/index'
   get 'homes/about'
   post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
