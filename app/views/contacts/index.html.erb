@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>お問い合わせありがとうございます。</h1>
+　<br>
+<h1>お問い合わせ履歴です。</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>アドレス</th>
+      <th>内容</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>マイページに飛ぶ設定にする予定</p>
