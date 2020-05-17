@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'contributors/new'
    mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :contacts
   get 'homes/index'
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
 
    resources :city_introductions
    devise_for :customers
-    resources :posts, only: [:new, :create, :index, :show] do
-   resource :post_comments, only: [:create]
+    resources :posts, only: [:new, :create, :index, :show, :destroy] do
+    resource :favorites, only: [:create, :destroy]
+    resource :post_comments, only: [:create]
   end
 end

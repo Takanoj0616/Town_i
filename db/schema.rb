@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_035005) do
+ActiveRecord::Schema.define(version: 2020_05_17_095938) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer "rater_id"
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2020_05_17_035005) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "contributors", force: :cascade do |t|
+    t.integer "type_id", null: false
+    t.string "name", null: false
+    t.text "explanation", null: false
+    t.string "image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -62,6 +71,13 @@ ActiveRecord::Schema.define(version: 2020_05_17_035005) do
     t.string "street_address"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lists", force: :cascade do |t|
