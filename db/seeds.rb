@@ -5,11 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+post_1 = Post .create!(
+  town_name: '横浜',
+  comment: 'コメントコメント',
+  image_id: File.open('./app/assets/images/big-star.png'),
+  customer_id: 1,
+)
+
 Contributor.create!(
    type_id: 1,
    name: '太郎',
    explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
    image: File.open('./app/assets/images/big-star.png'),
+   post_id: post_1.id,
  )
 
  Contributor.create!(
@@ -17,6 +25,7 @@ Contributor.create!(
    name: '鈴木',
    explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
    image: File.open('./app/assets/images/big-star.png'),
+   post_id: post_1.id,
  )
 
  Contributor.create!(
@@ -24,6 +33,7 @@ Contributor.create!(
    name: '佐藤',
    explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
    image: File.open('./app/assets/images/big-star.png'),
+   post_id: post_1.id,
  )
 
  Contributor.create!(
@@ -31,6 +41,7 @@ Contributor.create!(
    name: '太田',
    explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
    image: File.open('./app/assets/images/big-star.png'),
+   post_id: post_1.id,
  )
 
  Contributor.create!(
@@ -38,4 +49,5 @@ Contributor.create!(
    name: '田中',
    explanation: '説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。',
    image: File.open('./app/assets/images/big-star.png'),
+   post_id: post_1.id,
  )
