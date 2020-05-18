@@ -1,17 +1,17 @@
-<h1>口コミ投稿</h1>
+					<h1>口コミ投稿</h1>
 
-<%= form_for(@post) do |f| %>
-   
+					<%= form_for(@post) do |f| %>
 
-<p>場所</p>
-<%= f.text_field :town_name %>
 
-<p>コメント</p>
-<%= f.text_area :comment %>
+					<p>場所</p>
+					<%= f.text_field :town_name %>
 
-<h4>画像</h4>
-<%= f.attachment_field :image %>
+					<p>コメント</p>
+					<%= f.text_area :comment %>
 
-<%= f.submit '投稿する' %>
+					<h4>画像</h4>
+					<%= f.attachment_field :image %>
 
-<% end %>
+					<%= f.submit '投稿する' %>
+
+					<% end %>
