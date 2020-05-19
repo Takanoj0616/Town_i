@@ -51,3 +51,10 @@ Contributor.create!(
    image: File.open('./app/assets/images/big-star.png'),
    post_id: post_1.id,
  )
+
+ City_introduction_1 =  City_introduction .create!(
+  introduction: '横浜',
+  comment: 'コメントコメント',
+  image_id: File.open('./app/assets/images/big-star.png'),
+  customer_id: 1,
+)
