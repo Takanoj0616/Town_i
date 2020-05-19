@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'contributors/new'
    mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :contacts
@@ -15,4 +16,5 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resource :post_comments, only: [:create]
   end
+  resources :customers, only: [:show]
 end
