@@ -1,0 +1,22 @@
+				<%= form_for @user do |f| %>
+							<label>Name</label>
+								<div>
+											<%= f.text_field :name %>
+									</div>
+											<label>Profile_image</label>
+									<div>
+												<%= f.attachment_field :profile_image %>
+						</div>
+
+							<label>Introduction</label>
+									<div>
+											<%= f.text_area :introduction %>
+									</div>
+									<%= f.submit "Update User", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+				<% end %>
+
+<%
+=begin%>
+	プロフィール編集ページ
+<%
+=end%>
