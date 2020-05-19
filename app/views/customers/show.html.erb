@@ -1,0 +1,20 @@
+				
+<%
+=begin%>
+	postページの新規投稿をこのページに表示したい。
+	やり方が解らない。
+<%
+=end%>
+				<h1>コメント一覧画面</h1>
+
+				<%= @customer.name %>
+
+				<% @posts.each do |post| %>
+
+				<%= @posts.town_name %>
+
+				<%= @posts.comment %>
+
+				<%= paginate @post %>
+
+				<% end %>
