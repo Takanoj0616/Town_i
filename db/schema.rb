@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_102503) do
+ActiveRecord::Schema.define(version: 2020_05_19_040241) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer "rater_id"
@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 2020_05_18_102503) do
     t.string "introduction", null: false
     t.string "image", null: false
     t.string "address", null: false
-    t.float "latittude", null: false
-    t.float "longitude", null: false
     t.text "comment", null: false
     t.integer "user_id", null: false
     t.integer "post_image_id", null: false
@@ -135,6 +133,16 @@ ActiveRecord::Schema.define(version: 2020_05_18_102503) do
 
   create_table "samples", force: :cascade do |t|
     t.string "place", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.integer "type_id", null: false
+    t.string "name", null: false
+    t.text "explanation", null: false
+    t.string "image", null: false
+    t.integer "city_introduction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
