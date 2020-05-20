@@ -1,5 +1,4 @@
-
- <% if _signed_in? %>
+          <% if customer_signed_in? %>
             <h1>コメント一覧</h1>
                   <div class="jscroll">
                   <% @posts.each do |post| %>
@@ -15,7 +14,7 @@
                               </tr>
                         </table>
                         <% end %>
-
+                              <div>
                                     <% @posts.each do |post| %>
                                           <% post.contributor.each do |contributor| %>
                                                 <table>
@@ -23,38 +22,17 @@
                                                             <td><%= contributor.name %></td>
 
                                                             <td><%= contributor.explanation %></td>
-
+                                                            <%= "id: #{contributor.id} explanation: #{contributor.explanation}" %>
+                                                            <% if current_user.following?(customer) %>
+                                                                        <%= link_to 'フォロー外す', unfollow_path(contributor.id), method: :POST %>
+                                                                        <% else %>
+                                                                        <%= link_to 'フォローする', follow_path(contributor.id), method: :POST %>
+                                                             <% end %>
                                                             <td><%= contributor.image %></td>
-                                                                   <%
-=begin%>
- <%= "id: #{customer.id} name: #{user.explantion}" %>
-
-                                                                  <% if current_customer.following?(customer) %>
-
-                                                                  <%= link_to 'フォロー外す', unfollow_path(customer.id), method: :POST %>
-                                                      
-                                                                  <%= link_to 'フォローする', follow_path(customer.id), method: :POST %> 
-<%
-=end%>
-
                                                       </tr>
                                                 </table>
                                           <% end %>
                               <% end %>
-                         <% end %>
+                        <% end %>
                   <%= paginate @posts %>
             </div>
-
-
-  <h1>ユーザー一覧画面</h1>
-  <% @users.each do |user| %>
-    <p>
-      <%= "id: #{customer.id} name: #{user.explantion}" %>
-      <% if current_customer.following?(customer) %>
-        <%= link_to 'フォロー外す', unfollow_path(customer.id), method: :POST %>
-      <% else %>
-        <%= link_to 'フォローする', follow_path(customer.id), method: :POST %>
-      <% end %>
-    </p>
-  <% end %>
-<% end %>
