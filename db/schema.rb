@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_105946) do
+ActiveRecord::Schema.define(version: 2020_05_20_054619) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer "rater_id"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_05_19_105946) do
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "contributor_id"
   end
 
   create_table "lists", force: :cascade do |t|
