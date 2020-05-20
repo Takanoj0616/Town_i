@@ -1,17 +1,24 @@
 
-<h1>口コミ投稿</h1>
+					<h1>新規投稿</h1>
 
-<%= form_for(@city_introduction) do |f| %>
+					<%= form_for(@city_introduction) do |f| %>
 
-<p>タイトル</p>
-<%= f.text_field :title %>
+								<p>タイトル</p>
+								<%= f.text_field :title %>
 
-<p>本文</p>
-<%= f.text_area :body %>
+								<p>本文</p>
+								<%= f.text_area :body %>
 
-<h4>画像</h4>
-<%= f.attachment_field :image %>
+								<h4>画像</h4>
+								<%= f.attachment_field :image %>
 
-<%= f.submit '投稿する' %>
+								<%= f.submit '投稿する' %>
 
-<% end %>
+					<% end %>
+
+
+<%
+=begin%>
+	街のs新規投稿するページにする
+<%
+=end%>

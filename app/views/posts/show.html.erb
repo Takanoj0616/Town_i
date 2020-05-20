@@ -1,51 +1,51 @@
-			<h2 class="comment-count"><%= @post.post_comments.count %>件コメント</h2>
+								<h2 class="comment-count"><%= @post.post_comments.count %>件コメント</h2>
 
-			<li>
-			  <%= link_to "削除", post_path(@post), method: :delete %>
-			</li>
-                        
-			<%= attachment_image_tag @post, :image %>
+												<li>
+													<%= link_to "削除", post_path(@post), method: :delete %>
+												</li>
+																					
+												<%= attachment_image_tag @post, :image %>
 
-			<%= @post.town_name %>
+																<%= @post.town_name %>
 
-			<%= @post.customer.name %>
+																<%= @post.customer.name %>
 
-			<%= @post.created_at.strftime('%Y/%m/%d') %>
+																<%= @post.created_at.strftime('%Y/%m/%d') %>
 
-			<% if @post.favorited_by?(current_customer) %>
-			<li>
-			  <%= link_to post_favorites_path(@post), method: :delete do %>
-			  <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-			  <%= @post.favorites.count %> いいね
-			  <% end %>
-			</li>
-			<% else %>
-			<li>
-			  <%= link_to post_favorites_path(@post), method: :post do %>
-			  <i class="fa fa-heart-o" aria-hidden="true"></i>
-			  <%= @post.favorites.count %> いいね
-			  <% end %>
-			</li>
-			<% end %>
+																<% if @post.favorited_by?(current_customer) %>
+																<li>
+																	<%= link_to post_favorites_path(@post), method: :delete do %>
+																	<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+																	<%= @post.favorites.count %> いいね
+																	<% end %>
+																</li>
+																<% else %>
+																<li>
+																	<%= link_to post_favorites_path(@post), method: :post do %>
+																	<i class="fa fa-heart-o" aria-hidden="true"></i>
+																	<%= @post.favorites.count %> いいね
+																	<% end %>
+																</li>
+																<% end %>
 
-			<%= @post.comment %>
+																<%= @post.comment %>
 
-			<% @post.post_comments.each do |post_comment| %>
+												<% @post.post_comments.each do |post_comment| %>
 
-			<%= image_tag %>
+												<%= image_tag %>
 
-			<%= post_comment.customer.name %>
+												<%= post_comment.customer.name %>
 
-			<%= post_comment.created_at.strftime('%Y/%m/%d') %>
+												<%= post_comment.created_at.strftime('%Y/%m/%d') %>
 
-			<%= post_comment.comment %>
+												<%= post_comment.comment %>
 
-			<% end %>
+												<% end %>
 
 
-			<%= form_for [@post, @post_comment] do |f| %>
+								<%= form_for [@post, @post_comment] do |f| %>
 
-			<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+								<%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
 
-			<%= f.submit "送信する" %>
-			<% end %>
+								<%= f.submit "送信する" %>
+								<% end %>
