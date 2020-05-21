@@ -1,5 +1,5 @@
 class Favorite < ApplicationRecord
-	     belongs_to :customer
+	   belongs_to :customer
          belongs_to :post
-          belongs_to :contributor
+         belongs_to :contributor
     end
