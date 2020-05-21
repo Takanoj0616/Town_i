@@ -1,9 +1,9 @@
-				<%= form_for @user do |f| %>
-							<label>Name</label>
+				<%= form_for @customer do |f| %>
+							<label>名前</label>
 								<div>
 											<%= f.text_field :name %>
 									</div>
-											<label>Profile_image</label>
+											<label>写真</label>
 									<div>
 												<%= f.attachment_field :profile_image %>
 						</div>
@@ -14,9 +14,3 @@
 									</div>
 									<%= f.submit "Update User", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
 				<% end %>
-
-<%
-=begin%>
-	プロフィール編集ページ
-<%
-=end%>

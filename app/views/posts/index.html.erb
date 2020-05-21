@@ -1,38 +1,35 @@
-          <% if customer_signed_in? %>
-            <h1>コメント一覧</h1>
-                  <div class="jscroll">
-                  <% @posts.each do |post| %>
-                        <table>
-                              <tr>
-                                    <td><%= attachment_image_tag post, :image, :fill, 200, 100, format: 'jpg' %></td>
+                              <h1>コメント一覧</h1>
+                                  <div class="jscroll">
+                                        <% @posts.each do |post| %>
+                                             <table>
+                                                  <tr>
+                                                      <td><%= attachment_image_tag post, :image, :fill, 200, 100, format: 'jpg' %></td>
 
-                                    <td><span><%= post.town_name %></span></td>
+                                                      <td><span><%= post.town_name %></span></td>
 
-                                    <td><span><%= post.comment %></td>
+                                                      <td><span><%= post.comment %></td>
 
-                                    <td><%= post.customer.name %></td>
-                              </tr>
-                        </table>
-                        <% end %>
-                              <div>
-                                    <% @posts.each do |post| %>
-                                          <% post.contributor.each do |contributor| %>
-                                                <table>
-                                                      <tr>
-                                                            <td><%= contributor.name %></td>
+                                                      <td><%= post.customer.name %></td>
 
-                                                            <td><%= contributor.explanation %></td>
-                                                            <%= "id: #{contributor.id} explanation: #{contributor.explanation}" %>
-                                                            <% if current_user.following?(customer) %>
-                                                                        <%= link_to 'フォロー外す', unfollow_path(contributor.id), method: :POST %>
-                                                                        <% else %>
-                                                                        <%= link_to 'フォローする', follow_path(contributor.id), method: :POST %>
-                                                             <% end %>
-                                                            <td><%= contributor.image %></td>
-                                                      </tr>
+                                                      <td><%= link_to "編集する", edit_post_path(post.id) %></td>
+                                                      <td><%= link_to "削除する", post_path(post.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %></td>
+                                                  </tr>
                                                 </table>
-                                          <% end %>
-                              <% end %>
-                        <% end %>
-                  <%= paginate @posts %>
-            </div>
+                                       <% end %>
+
+                                                            <div>
+                                                               <% @posts.each do |post| %>
+                                                                 <% post.contributor.each do |contributor| %>
+                                                                        <table>
+                                                                              <tr>
+                                                                                          <td><%= contributor.name %></td>
+
+                                                                                          <td><%= contributor.explanation %></td>
+
+                                                                                          <td><%= contributor.image %></td>
+                                                                              </tr>
+                                                                        </table>
+                                                            <% end %>
+                                                       <% end %>
+                                                 <%= paginate @posts %>
+                                             </div>

@@ -12,9 +12,8 @@ Rails.application.routes.draw do
 
    resources :city_introductions
    devise_for :customers
-    resources :posts, only: [:new, :create, :index, :show, :destroy] do
+    resources :posts, only: [:new, :create, :index, :edit, :destroy] do
     resource :favorites, only: [:create, :destroy]
-    resource :post_comments, only: [:create]
   end
-  resources :customers, only: [:show]
+  resources :customers, only: [:show, :new, :index, :edit]
 end

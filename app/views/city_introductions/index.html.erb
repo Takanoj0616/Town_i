@@ -1,46 +1,45 @@
-        <div>
-          <%= search_form_for @q, url:  city_introductions_path do |f| %>
-          <%= f.label :place, "Keyword" %>
-          <%= f.search_field :place_cont %>
+                  <div>
+                          <%= search_form_for @q, url:  city_introductions_path do |f| %>
+                              <%= f.label :place, "Keyword" %>
 
-          <%= f.submit "検索" %>
-          <% end %>
-        </div>
+                              <%= f.search_field :place_cont %>
 
-        <div id="map"></div>
+                              <%= f.submit "検索" %>
+                          <% end %>
+                  </div>
 
-                  <h1>カレンダー</h1>
-
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>情報</th>
-                        <th colspan="3"></th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-                            <% @city_introductions.each do |city_introduction| %>
+                  <div id="map"></div>
+                            <h1>カレンダー</h1>
+                            <table>
+                               <thead>
                                 <tr>
-                                    <td><%= city_introduction.name %></td>
-                                    <td><%= city_introduction.ntroduction.strftime("%Y-%m-%d %H:%M") %></td>
-                                  </tr>
-                                <% end %>
-                          </tbody>
-                  </table>
+                                    <th>情報</th>
+                                    <th colspan="3"></th>
+                                 </tr>
+                              </thead>
 
-                  <br>
+                              <tbody>
+                                      <% @city_introductions.each do |city_introduction| %>
+                                          <tr>
+                                              <td><%= city_introduction.name %></td>
+                                              <td><%= city_introduction.ntroduction.strftime("%Y-%m-%d %H:%M") %></td>
+                                            </tr>
+                                          <% end %>
+                                    </tbody>
+                            </table>
+
+                            <br>
 
 
-                    <%= month_calendar events: @city_introductions  do |date, city_introductions| %>
-                          <%= date.day %>
+                              <%= month_calendar events: @city_introductions  do |date, city_introductions| %>
+                                    <%= date.day %>
 
-                        <% city_introductions.each do |city_introduction| %>
-                        <div>
-                      <%= link_to city_introduction.name, new_city_introduction_path %>
-                    </div>
-                  <% end %>
-                <% end %>
+                                  <% city_introductions.each do |city_introduction| %>
+                                  <div>
+                                <%= link_to city_introduction.name, new_city_introduction_path %>
+                              </div>
+                            <% end %>
+                          <% end %>
 
 
 

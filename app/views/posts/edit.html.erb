@@ -1,0 +1,14 @@
+<h3>口コミ編集ページ</h3>
+<%= form_for @post do |f| %>
+
+<p>場所</p>
+<%= f.text_field :town_name %>
+
+<p>コメント</p>
+<%= f.text_area :comment %>
+
+<p>画像</p>
+<%= f.attachment_field :image %>
+
+<%= f.submit '編集する' %>
+<% end %>

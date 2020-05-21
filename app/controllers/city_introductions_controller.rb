@@ -6,8 +6,11 @@ class CityIntroductionsController < ApplicationController
   end
 
   def show
+        @city_inroduction_new = CityIntroduction.new
+        @city_introduction = CityIntroduction.find(params[:id])
+        @customer = @customer.city_introduction
   end
- 
+
   def create
     @city_introduction = CityIntroduction.new(city_introduction_params)
     @city_introduction.save

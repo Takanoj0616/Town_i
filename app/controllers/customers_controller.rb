@@ -1,6 +1,23 @@
 class CustomersController < ApplicationController
-  def show
-     @customer = Customer.find(params[:id])
-     @posts = @customer.posts.page(params[:page]).reverse_order
+
+  def indx
   end
+
+  def show
+    @city_introduction = CityIntroduction.new
+    @customer = Customer.find(params[:id])
+    @city_introductions = current_customer
+  end
+
+  def create
+    @customer = Customer.new(customer_params)
+    @customer.customer_id = current_customer.id
+    @customer.save
+    redirect_to customer_path
+  end
+   private
+  def customer_params
+      params.require(:customer).permit(:name, :street_address, :town_name, :comment, :image)
+   end
+
 end

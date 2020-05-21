@@ -6,14 +6,14 @@ class Customer < ApplicationRecord
 
          ratyrate_rater
           has_many :posts, dependent: :destroy
-          has_many :post_comments, dependent: :destroy
           has_many :favorites, dependent: :destroy
+          has_many :city_introductions, dependent: :destroy
           has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得する
           has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得する
           has_many :following_customer, through: :follower, source: :followed # 自分がフォローしている人
           has_many :follower_customer, through: :followed, source: :follower # 自分をフォローしている人
 
-                  # フォローする
+           # フォローする
           def follow(contributor_id)
             follower.create(followed_id: contributor_id)
           end
