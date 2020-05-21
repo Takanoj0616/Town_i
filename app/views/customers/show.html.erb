@@ -1,20 +1,16 @@
-				
-<%
-=begin%>
-	postページの新規投稿をこのページに表示したい。
-	やり方が解らない。
-<%
-=end%>
-				<h1>コメント一覧画面</h1>
+<h1>オススメな場所を投稿して下さい‼︎</h1>
 
-				<%= @customer.name %>
+<%= form_for @city_introduction  do |f| %>
 
-				<% @posts.each do |post| %>
+<p>場所</p>
+<%= f.text_field :name %>
 
-				<%= @posts.town_name %>
+<p>コメント</p>
+<%= f.text_area :comment %>
 
-				<%= @posts.comment %>
+<p>画像</p>
+<%= f.attachment_field :image %>
 
-				<%= paginate @post %>
+<%= f.submit '投稿する' %>
 
-				<% end %>
+<% end %>

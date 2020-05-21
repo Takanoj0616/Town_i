@@ -6,32 +6,18 @@ class CityIntroductionsController < ApplicationController
   end
 
   def show
-        @city_inroduction_new = CityIntroduction.new
+        @city_introduction_new = CityIntroduction.new
         @city_introduction = CityIntroduction.find(params[:id])
         @customer = @customer.city_introduction
   end
 
   def create
-    @city_introduction = CityIntroduction.new(city_introduction_params)
-    @city_introduction.save
-    redirect_to city_introductions_path
   end
 
   def new
-      @city_introduction = CityIntroduction.new
   end
 
   private
     def city_introduction_params
-        params.require(:city_introduction).permit(:image, :body, :title)
+        params.require(:city_introduction).permit(:image, :name, :comment, :customer_id)
     end
-
-    def sample_params
-        params.require(:sample).permit(:plase)
-    end
-
-     def set_sample
-      @cityIntroduction = CityIntroduction.find(params[:id])
-    end
-
-end

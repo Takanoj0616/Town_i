@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_043404) do
+ActiveRecord::Schema.define(version: 2020_05_21_101356) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer "rater_id"
@@ -31,8 +31,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_043404) do
     t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
-    t.text "body"
     t.string "image_id"
     t.integer "customer_id"
   end
@@ -67,9 +65,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_043404) do
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.string "street_address"
-    t.text "town_name"
-    t.text "coment"
-    t.string "image_id"
     t.integer "city_introduction_id"
     t.string "name"
     t.index ["email"], name: "index_customers_on_email", unique: true
