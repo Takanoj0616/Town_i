@@ -1,7 +1,7 @@
 class CityIntroduction < ApplicationRecord
 				attachment :image
 			  has_many :station, dependent: :destroy
-			  has_many :customer, dependent: :destroy
+			   belongs_to :customer, dependent: :destroy
 					include CanCan::Ability
 
 					# 		def initialize(user)
