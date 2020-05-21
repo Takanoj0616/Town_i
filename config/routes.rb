@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
   mount RailsAdmin::Engine => '/admins', as: 'rails_admin'
 
-   resources :city_introductions, onrly: [:index, :show, :new, :edit]
+   resources :city_introductions
    devise_for :customers
-    resources :posts, only: [:new, :create, :index, :show, :destroy] do
+    resources :posts, only: [:new, :create, :index, :edit, :destroy] do
     resource :favorites, only: [:create, :destroy]
   end
-  resources :customers, only: [:show]
+  resources :customers, only: [:show, :new, :index, :edit]
 end

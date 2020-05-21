@@ -1,8 +1,14 @@
-<h1>街新着情報一覧</h1>
-   
+						<h1>街新着情報一覧</h1>
 
-	 <%
-=begin%>
-  ここにseedでいれた街の情報を追加できれば良いと思う。追加情報
-<%
-=end%>
+								<% @posts.each do |post| %>
+								<table>
+									<tr>
+										<td><%= attachment_image_tag post, :image, :fill, 200, 100, format: 'jpg' %></td>
+
+										<td><span><%= post.town_name %></span></td>
+
+										<td><span><%= post.comment %></td>
+
+										<td><%= post.customer.name %></td>
+								</table>
+						<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_110020) do
+ActiveRecord::Schema.define(version: 2020_05_21_043404) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer "rater_id"
@@ -63,11 +63,15 @@ ActiveRecord::Schema.define(version: 2020_05_20_110020) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.string "street_address"
+    t.text "town_name"
+    t.text "coment"
+    t.string "image_id"
+    t.integer "city_introduction_id"
+    t.string "name"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end

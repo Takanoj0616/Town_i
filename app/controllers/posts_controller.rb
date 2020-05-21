@@ -14,7 +14,8 @@ class PostsController < ApplicationController
     @posts = Post.page(params[:page]).per(5)
   end
 
-  def show
+  def edit
+    @post = Post.find(params[:id])
   end
 
   def destroy

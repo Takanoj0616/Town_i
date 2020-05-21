@@ -1,0 +1,16 @@
+	<h1>オススメな場所を投稿して下さい‼︎</h1>
+
+	<%= form_for city_introduction url: city_introduction_path do |f| %>
+
+	<p>場所</p>
+	<%= f.text_field :town_name %>
+
+	<p>コメント</p>
+	<%= f.text_area :comment %>
+
+	<p>画像</p>
+	<%= f.attachment_field :image %>
+
+	<%= f.submit '投稿する' %>
+
+	<% end %>
