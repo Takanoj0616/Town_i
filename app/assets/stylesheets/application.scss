@@ -13,7 +13,10 @@
 *= require simple_calendar
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
 
 .c{
   height: 500px;
