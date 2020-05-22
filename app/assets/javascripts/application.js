@@ -16,6 +16,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require jcanvas
+//= require bootstrap-sprockets
 //= require_tree .
 
 var jscrollOption = {
