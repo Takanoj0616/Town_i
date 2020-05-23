@@ -15,19 +15,17 @@
                         <% end %>
                     </div>
                     <div>
-                        <% @posts.each do |customer| %>
-                              <% post.customer.each do |customer| %>
+                        <% @posts.each do |post| %>
                                     <table>
                                           <tr>
-                                              <td><%= customer.image %></td>
-                                                  <td><span><%= post.town_name %></span></td>
-
-                                                        <td><% if current_customer.following?(customer) %></td>
-                                                        <td><%= customer.explanation %></td>
-                                                        <td><%= "id: #{customer.id} explanation: #{customer.explanation}" %></td>
+                                              <td><%= post.customer.image %></td>
+                                                  <td><span><%= post.customer.name %></span></td>
+                                                        <td><% if current_customer.following?(post.customer) %></td>
+                                                        <td><%= post.customer.explanation %></td>
+                                                        <td><%= "id: #{post.customer.id} explanation: #{post.customer.explanation}" %></td>
                                                   </tr>
                                             </table>
-                                      <% end %>
-                                  <% end %>
-                                  <%= paginate @posts %>
-                              </div>
+                                         <% end %>
+                                    <% end %>
+                          <%= paginate @posts %>
+                      </div>
