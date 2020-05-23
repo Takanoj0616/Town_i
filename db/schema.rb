@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_101356) do
+ActiveRecord::Schema.define(version: 2020_05_23_011600) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer "rater_id"
@@ -67,6 +67,11 @@ ActiveRecord::Schema.define(version: 2020_05_21_101356) do
     t.string "street_address"
     t.integer "city_introduction_id"
     t.string "name"
+    t.integer "follower_id"
+    t.integer "followered_id"
+    t.integer "typ_id"
+    t.text "explanation"
+    t.string "image"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -80,7 +85,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_101356) do
   end
 
   create_table "lists", force: :cascade do |t|
-    t.string "name"
     t.text "explanation"
     t.string "image_id"
     t.datetime "created_at", null: false

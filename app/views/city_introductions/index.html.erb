@@ -1,45 +1,103 @@
-                  <div>
-                          <%= search_form_for @q, url:  city_introductions_path do |f| %>
-                              <%= f.label :place, "Keyword" %>
+<header class="top-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-xs-5 col-sm-4 header-logo">
+        <br>
+        <h1 class="logo">City<span class="logo-head">Introduction</span></h1>
+        </a>
+      </div>
+      <div>
+        <br>
+        <br>
+        <%= search_form_for @q, url:  city_introductions_path do |f| %>
+        <%= f.label :place, "Keyword" %>
 
-                              <%= f.search_field :place_cont %>
+        <%= f.search_field :place_cont %>
 
-                              <%= f.submit "検索" %>
-                          <% end %>
-                  </div>
+        <%= f.submit "検索" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-8 col-md-offset-1 col-xs-7">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+    </div>
+  </div>
+  </nav>
+  </div>
+  </div>
+  </div>
+</header>
 
-                  <div id="map"></div>
-                            <h1>カレンダー</h1>
-                            <table>
-                               <thead>
-                                <tr>
-                                    <th>情報</th>
-                                    <th colspan="3"></th>
-                                 </tr>
-                              </thead>
+<div id="header" class="content-block">
 
-                              <tbody>
-                                      <% @city_introductions.each do |city_introduction| %>
-                                          <tr>
-                                              <td><%= city_introduction.name %></td>
-                                              <td><%= city_introduction.ntroduction.strftime("%Y-%m-%d %H:%M") %></td>
-                                            </tr>
-                                          <% end %>
-                                    </tbody>
-                            </table>
+  <section class="center">
+    <div class="slogan">
+      オススメな街を見てみる
+    </div>
 
-                            <br>
-
-
-                              <%= month_calendar events: @city_introductions  do |date, city_introductions| %>
-                                    <%= date.day %>
-
-                                  <% city_introductions.each do |city_introduction| %>
-                                  <div>
-                                <%= link_to city_introduction.name, new_city_introduction_path %>
-                              </div>
-                            <% end %>
-                          <% end %>
+    <section class="center">
+      <div class="slogan">
+        <div class="input-group" style="width: 60%; margin: auto;">
+          </span>
+        </div>
+        </form>
+    </section>
+</div>
 
 
+<div class="content-block" id="blog">
+  <div class="container blog-sec">
+    <header class="block-heading cleafix">
+      <div class="title-page">
+        <p class="main-header">地域から探す</p>
+        <p class="sub-header">Search by area</p>
+      </div>
+    </header>
+    <section class="block-body">
+      <div class="row">
+      </div>
+    </section>
+  </div>
+</div>
+
+</body>
+
+
+
+
+
+
+<div id="map"></div>
+<h1>カレンダー</h1>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @city_introductions.each do |city_introduction| %>
+    <tr>
+      <td><%= city_introduction.name %></td>
+      <td><%= city_introduction.ntroduction.strftime("%Y-%m-%d %H:%M") %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= month_calendar events: @city_introductions  do |date, city_introductions| %>
+<%= date.day %>
+
+<% city_introductions.each do |city_introduction| %>
+<div>
+  <%= link_to city_introduction.name, new_city_introduction_path %>
+</div>
+<% end %>
+<% end %>
 

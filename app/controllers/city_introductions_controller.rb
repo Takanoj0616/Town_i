@@ -21,3 +21,5 @@ class CityIntroductionsController < ApplicationController
     def city_introduction_params
         params.require(:city_introduction).permit(:image, :name, :comment, :customer_id)
     end
+
+  end
