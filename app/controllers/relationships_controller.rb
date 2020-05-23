@@ -1,7 +1,7 @@
 class RelationshipsController < ApplicationController
 
 	def follow
-  curren_customer.follow(params[:id])
+  current_customer.follow(params[:id])
   redirect_to root_path
 end
 
