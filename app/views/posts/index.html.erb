@@ -9,23 +9,27 @@
                                     <td><span><%= post.comment %></td>
                                     <td><%= post.customer.name %></td>
                                     <td><%= link_to "編集する", edit_post_path(post.id) %></td>
-                                        <td><%= link_to "削除する", post_path(post.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %></td>
+                                    <td><%= link_to "削除する", post_path(post.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %></td>
                                    </tr>
                             </table>
                         <% end %>
                     </div>
                     <div>
+                    <% if customer_signed_in? %>
                         <% @posts.each do |post| %>
                                     <table>
                                           <tr>
                                               <td><%= post.customer.image %></td>
+                                                <p>
                                                   <td><span><%= post.customer.name %></span></td>
-                                                        <td><% if current_customer.following?(post.customer) %></td>
-                                                        <td><%= post.customer.explanation %></td>
-                                                        <td><%= "id: #{post.customer.id} explanation: #{post.customer.explanation}" %></td>
-                                                  </tr>
-                                            </table>
+                                                        <%= ": #{post.customer.id} explanation: #{post.customer.explanation}" %>
+                                                        <% if current_customer.following?(post.customer) %>
+                                                            <%= link_to 'フォロー外す', unfollow_path(post.customer.id), method: :POST %>
+                                                        <% else %>
+                                                            <%= link_to 'フォローする', follow_path(post.customer.id), method: :POST %>
+                                                        <% end %>
+                                                     </p>
+                                                <% end %>
                                          <% end %>
-                                    <% end %>
                           <%= paginate @posts %>
                       </div>

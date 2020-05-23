@@ -31,7 +31,7 @@
                                 </div>
                              </header>
 
-                                        <div id="header" class="content-block">
+                                        <div id="header" class="name-block">
 
                                           <section class="center">
                                             <div class="slogan">
@@ -51,7 +51,7 @@
 <div class="content-block" id="blog">
   <div class="container blog-sec">
     <header class="block-heading cleafix">
-      <div class="title-page">
+      <div class="comment-page">
         <p class="main-header">地域から探す</p>
         <p class="sub-header">Search by area</p>
       </div>
@@ -66,38 +66,39 @@
 </body>
 
 
+    <p id="notice"><%= notice %></p>
+              <h1>スケジュール</h1>
 
+                <table>
+                      <thead>
+                           <tr>
+                                  <th>タイトル</th>
+                                  <th>時間</th>
+                                  <th colspan="3"></th>
+                                </tr>
+                          </thead>
 
+                          <tbody>
+                            <% @city_introductions.each do |city_introduction| %>
+                              <tr>
+                                <td><%= city_introduction.name %></td>
+                                <td><%= link_to 'Edit', edit_city_introduction_path(city_introduction.id) %></td>
+                                <td><%= link_to 'Destroy',city_introduction_path(city_introduction.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                              </tr>
+                            <% end %>
+                          </tbody>
+                        </table>
 
+                        <br>
 
-<div id="map"></div>
-<h1>カレンダー</h1>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></>
-    </tr>
-  </thead>
+                        <%= link_to '予定を書く', new_city_introduction_path %>
 
-  <tbody>
+                        <%= month_calendar events: @city_introductions do |date, city_introductions| %>
+                          <%= date.day %>
 
-    <% @city_introductions.each do |city_introduction| %>
-    <tr>
-      <td><%= city_introduction.name %></td>
-      <td><%= city_introduction.ntroduction.strftime("%Y-%m-%d %H:%M") %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<%= month_calendar events: @city_introductions  do |date, city_introductions| %>
-<%= date.day %>
-
-<% city_introductions.each do |city_introduction| %>
-<div>
-  <%= link_to city_introduction.name, new_city_introduction_path %>
-</div>
-<% end %>
-<% end %>
-
+                          <% city_introductions.each do |city_introduction| %>
+                            <div>
+                              <%= link_to city_introduction.comment, city_introduction %>
+                            </div>
+                          <% end %>
+                        <% end  %>
