@@ -5,8 +5,10 @@
                       <table>
                             <tr>
                                   <td><%= attachment_image_tag post, :image, :fill, 200, 100, format: 'jpg' %></td>
+                                  <br>
                                     <td><span><%= post.town_name %></span></td>
                                     <td><span><%= post.comment %></td>
+
                                     <td><%= post.customer.name %></td>
                                     <td><%= link_to "編集する", edit_post_path(post.id) %></td>
                                     <td><%= link_to "削除する", post_path(post.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %></td>
@@ -20,15 +22,30 @@
                                     <table>
                                           <tr>
                                               <td><%= post.customer.image %></td>
-                                                <p>
+                                                  <br>
                                                   <td><span><%= post.customer.name %></span></td>
-                                                        <%= ": #{post.customer.id} explanation: #{post.customer.explanation}" %>
-                                                        <% if current_customer.following?(post.customer) %>
-                                                            <%= link_to 'フォロー外す', unfollow_path(post.customer.id), method: :POST %>
+                                                        <td><%= "       #{post.customer.explanation}" %></td>
+                                                        <td><% if current_customer.following?(post.customer) %></td>
+                                                            <td><%= link_to 'フォロー外す', unfollow_path(post.customer.id), method: :POST %></td>
                                                         <% else %>
-                                                            <%= link_to 'フォローする', follow_path(post.customer.id), method: :POST %>
+                                                           <td><%= link_to 'フォローする', follow_path(post.customer.id), method: :POST %></td>
                                                         <% end %>
-                                                     </p>
+
+                                                         <td> <% if post.favorited_by?(current_customer) %></td>
+                                                       <li>
+                                                        <td><%= link_to  post_favorites_path(post), method: :delete do %></td>
+                                                        <td><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i><td>
+                                                        <td><%= post.customer.favorites.count %> いいね</td>
+                                                        <% end %>
+                                                    </li>
+                                                    <% else %>
+                                                    <li>
+                                                        <td><%= link_to post_favorites_path(post), method: :post do %></td>
+                                                        <td><i class="fa fa-heart-o" aria-hidden="true"></i></td>
+                                                        <td><%= post.favorites.count %> いいね</td>
+                                                          <% end %>
+                                                      </li>
+                                                      <% end %>
                                                 <% end %>
                                          <% end %>
                           <%= paginate @posts %>
