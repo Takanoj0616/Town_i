@@ -7,7 +7,7 @@ class FavoritesController < ApplicationController
         end
         def destroy
             post = Post.find(params[:post_id])
-            favorite = current_customer.favorites.find_by(post_id: post.id)
+            post = current_customer.favorites.find_by(post_id: post.id)
             favorite.destroy
             redirect_to post_path(post)
         end
