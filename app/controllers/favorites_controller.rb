@@ -2,6 +2,8 @@ class FavoritesController < ApplicationController
 	    def create
             post = Post.find(params[:post_id])
             favorite = current_customer.favorites.new(post_id: post.id)
+            # イイねを押した時の通知
+            post.create_notification_like!(current_customer)
             favorite.save
             redirect_to post_path(post)
         end

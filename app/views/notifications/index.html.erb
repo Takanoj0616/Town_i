@@ -1,0 +1,13 @@
+				<%
+=begin%>
+				/ 自分の投稿に対するいいね、コメントは通知に表示しない
+				<%
+=end%>
+				<% notifications = @notifications.where.not(visitor_id: current_customer.id) %>
+				<% if notifications.exists? %>
+				<%= render notifications %>
+				<%= paginate notifications %>
+				<% else %>
+				<p>通知はありません </p>
+				<% end %>
+

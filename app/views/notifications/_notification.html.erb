@@ -1,0 +1,26 @@
+	
+	
+	<% notifications. each do |notification| %>
+		<% visitor = notification.visitor %>
+				<% visited = notification.visited %>
+					<div class= "col-md-6.mx-auto" >
+							<div class= "form-inline">
+								<span>
+									<%= link_to customer_path(visitor) do %>
+										<%= image_tag avatar_url(visitor).to_s, class: "icon_mini" %>
+												<strong>
+													<%= visitor.name %>
+													<%= 'さんが' %>
+												         <% case notification.action %>
+														<% when 'follow' then %>
+														<%= "あなたをフォローしました" %>
+														<% when 'like' then %>
+														<%= link_to 'あなたの投稿', notification.post, style: "font-weight: bold;" %>
+													<%= "にいいねしました" %>
+										     <% end %>
+								   <% end %>
+							</span>
+						</div>
+					</div>
+				<% end %>
+
