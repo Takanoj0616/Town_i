@@ -8,6 +8,8 @@ class RaterController < ApplicationController
       render :json => true
     else
       render :json => false
+
+       post.create_notification_like!(current_customer)
     end
   end
 end
