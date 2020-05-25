@@ -80,3 +80,7 @@ gem 'pry-byebug'
 gem 'kaminari','~> 1.1.1'
 gem 'carrierwave'
 gem 'font-awesome-rails'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
